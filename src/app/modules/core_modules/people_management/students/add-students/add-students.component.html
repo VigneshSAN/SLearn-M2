@@ -1,0 +1,192 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header">
+          <strong *ngIf="!updateButton">Add Students</strong>
+          <strong *ngIf="updateButton">Update Students</strong>
+        </div>
+
+        <div class="card-body">
+
+          <div class="row">
+            <tabset>
+              <tab>
+                <ng-template tabHeading>
+                  <i class="icon-user"></i> Students Details</ng-template>
+
+                <div class="row">
+                  <div class="col-md-6">
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="students.firstName">Students Firstname</label>
+                      <div class="col-md-9">
+                        <input type="text" [(ngModel)]="students.firstName" id="students.firstName" name="students.firstName" class="form-control"
+                          placeholder="Firstname">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="students.doj">Date of Joining</label>
+                      <div class="col-md-9">
+                        <!-- <input type="date" [(ngModel)]="students.doj" id="students.doj" name="students.doj" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                          class="form-control" placeholder="Date Of Joining"> -->
+
+                          <ng-datepicker class="ng_date_picker" [(ngModel)]="students.doj" [(options)]="options"></ng-datepicker>
+
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="students.mobile">Mobile</label>
+                      <div class="col-md-9">
+                        <input type="text" pattern="[6789][0-9]{9}" [(ngModel)]="students.mobile" id="students.mobile" name="students.mobile" class="form-control" placeholder="Mobile Number">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="batch">Batch</label>
+                      <div class="col-md-9">
+                        <select [(ngModel)]="batch" id="batch" name="batch" class="form-control">
+                          <option value="-1">-Select-</option>
+                          <option value="{{select.id}}" *ngFor="let select of selection">{{select.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="students.lastName">Students Lastname</label>
+                      <div class="col-md-9">
+                        <input type="text" [(ngModel)]="students.lastName" id="students.lastName" name="students.lastName" class="form-control" placeholder="Lastname">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="students.dob">Date of Birth</label>
+                      <div class="col-md-9">
+                        <!-- <input type="date" [(ngModel)]="students.dob" id="students.dob" name="students.dob" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                          class="form-control" placeholder="Date Of Birth"> -->
+
+                          <ng-datepicker class="ng_date_picker" [(ngModel)]="students.dob" [(options)]="options"></ng-datepicker>
+
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="students.email">Email</label>
+                      <div class="col-md-9">
+                        <input type="text" [(ngModel)]="students.email" id="students.email" name="students.email" class="form-control" placeholder="Email Address">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </tab>
+              
+              <tab>
+                <ng-template tabHeading>
+                  <i class="icon-user"></i> Guardian Details</ng-template>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="guardians[0].guardianType">Guardians Type</label>
+                      <div class="col-md-9">
+                        <select [(ngModel)]="guardians[0].guardianType" id="guardians[0].guardianType" name="guardians[0].guardianType" class="form-control">
+                          <option value="-1">-Select-</option>
+                          <option value="{{gaurdian.name}}" *ngFor="let gaurdian of gaurdianType">{{gaurdian.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="parents.firstName">Guardians Firstname</label>
+                      <div class="col-md-9">
+                        <input type="text" [(ngModel)]="parents.firstName" id="parents.firstName" name="parents.firstName" class="form-control" placeholder="Firstname">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="parents.doj">Date of Joining</label>
+                      <div class="col-md-9">
+                        <!-- <input type="date" [(ngModel)]="parents.doj" id="parents.doj" name="parents.doj" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" class="form-control"
+                          placeholder="Date Of Joining"> -->
+
+                          <ng-datepicker class="ng_date_picker" [(ngModel)]="parents.doj" [(options)]="options"></ng-datepicker>
+
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="parents.mobile">Mobile</label>
+                      <div class="col-md-9">
+                        <input type="text" pattern="[6789][0-9]{9}" [(ngModel)]="parents.mobile" id="parents.mobile" name="parents.mobile" class="form-control" placeholder="Mobile Number">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="guardians[0].description">Guardian Description</label>
+                      <div class="col-md-9">
+                        <input type="text" [(ngModel)]="guardians[0].description" id="guardians[0].description" name="guardians[0].description" class="form-control"
+                          placeholder="Description">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="parents.lastName">Guardians Lastname</label>
+                      <div class="col-md-9">
+                        <input type="text" [(ngModel)]="parents.lastName" id="parents.lastName" name="parents.lastName" class="form-control" placeholder="Lastname">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="parents.dob">Date of Birth</label>
+                      <div class="col-md-9">
+                        <!-- <input type="date" [(ngModel)]="parents.dob" id="parents.dob" name="parents.dob" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                          class="form-control" placeholder="Date Of Birth"> -->
+
+                          <ng-datepicker class="ng_date_picker" [(ngModel)]="parents.dob" [(options)]="options"></ng-datepicker>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label" for="parents.email">Email</label>
+                      <div class="col-md-9">
+                        <input type="text" [(ngModel)]="parents.email" id="parents.email" name="parents.email" class="form-control" placeholder="Email Address">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tab>
+            </tabset>
+          </div>
+
+
+        </div>
+
+        <div class="card-footer" *ngIf="!updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="submitStudents(students,guardians)">
+            <i class="fa fa-dot-circle-o"></i> Submit
+          </button>
+
+          <button type="reset" class="btn btn-sm btn-danger">
+            <i class="fa fa-ban"></i> Reset
+          </button>
+        </div>
+
+        <div class="card-footer" *ngIf="updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="updateStudents(students,guardians)">
+            <i class="fa fa-dot-circle-o"></i> Update
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

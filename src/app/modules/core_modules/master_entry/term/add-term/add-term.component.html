@@ -1,0 +1,65 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header">
+          <strong *ngIf="!updateButton">Add Term</strong>
+          <strong *ngIf="updateButton">Update Term</strong>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="term.name">Term Name</label>
+                <div class="col-md-9">
+                  <input type="text" [(ngModel)]="term.name" id="term.name" name="term.name" class="form-control" placeholder="Term Name">
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="term.type">Type</label>
+                <div class="col-md-9">
+                  <select [(ngModel)]="term.type" id="term.type" name="term.type" class="form-control">
+                    <option value="-1">-Select-</option>
+                    <option value="{{type.name}}" *ngFor="let type of termType">{{type.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card-footer" *ngIf="!updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="submitTerm(term)">
+            <i class="fa fa-dot-circle-o"></i> Submit
+          </button>
+
+          <button type="reset" class="btn btn-sm btn-danger">
+            <i class="fa fa-ban"></i> Reset
+          </button>
+        </div>
+
+        <div class="card-footer" *ngIf="updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="updateTerm(term.id)">
+            <i class="fa fa-dot-circle-o"></i> Update
+          </button>
+
+          <button type="submit" class="btn btn-sm btn-danger" [routerLink]="['/term/term-list']">
+            <i class="fa fa-dot-circle-o"></i> Cancel
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

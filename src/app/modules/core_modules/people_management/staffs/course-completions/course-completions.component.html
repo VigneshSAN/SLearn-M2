@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        Select Sections
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Class</label>
+                <select class="form-control" id="select1" name="select1">
+                  <option value="0">Please select</option>
+                  <option value="1">6th</option>
+                  <option value="2">7th</option>
+                  <option value="3">8th</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Sections</label>
+              <select class="form-control" id="select1" name="select1">
+                <option value="0">Please select</option>
+                <option value="1">A</option>
+                <option value="2">C</option>
+                <option value="3">E</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Subject</label>
+              <select class="form-control" id="select1" name="select1">
+                <option value="0">Please select</option>
+                <option value="1">Language 1</option>
+                <option value="2">Language 2</option>
+                <option value="3">Science</option>
+              </select>
+            </div>
+          </div>
+          <!--/.col-->
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        Course Completions
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Portions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2018/02/01</td>
+                  <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>                                   
+                </tr>
+                <tr>
+                  <td>2018/02/01</td>
+                  <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>                  
+                </tr>
+                <tr>
+                  <td>2018/02/01</td>
+                  <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>                  
+                </tr>
+                <tr>
+                  <td>2018/03/01</td>
+                  <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>                  
+                </tr>
+                <tr>
+                  <td>2018/01/21</td>
+                  <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-6">
+            <div class="course_graph">
+                <div [chart]="coursegraph"></div>
+            </div>            
+          </div>
+          
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+</div>  

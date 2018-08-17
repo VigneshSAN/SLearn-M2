@@ -1,0 +1,233 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert_msg">
+     <p> Below data's all are for demo purpose.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-header">
+        Achivements
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <img class="tropy_img" src="assets/img/dashboard/arrow_png.png" alt="slid_1"> 
+            <div class="col-sm-11">
+            <progressbar [animate]="false" [max]="max" [value]="currentValue">
+              <span style="color:white; white-space:nowrap;"></span>
+              </progressbar>
+             </div>          
+          </div>
+          <!--/.col-->
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header">
+        Gallery
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- <carousel>
+              <slide>
+                <img src="assets/img/slider/1.png" alt="slid_1">
+                <div class="carousel-caption">
+                  <h3 style="background-color: transparent;color: white;">TEST</h3>
+                  <p  style="background-color: transparent;color: white;">Sample Text</p>
+                </div>
+              </slide>
+              <slide>
+                <img src="assets/img/slider/2.png" alt="slid_1">
+              </slide>
+              <slide>
+                <img src="assets/img/slider/3.png" alt="slid_1">
+              </slide>
+            </carousel> -->
+          </div>
+          <!--/.col-->
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-header">
+        Report Card
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+              <table class="table table-responsive-sm table-bordered">
+                  <thead>
+                  <tr>
+                  <th>S.No</th>  
+                  <th>Exam</th>
+                  <th>Tamil</th>
+                  <th>English</th>
+                  <th>Maths</th>
+                  <th>Science</th>
+                  <th>S.Science</th>
+                  <th>Average</th>
+                  <th>Rank</th>
+                  <th>Credits</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                  <td>1</td>
+                  <td>1st Term</td>
+                  <td> <circle-progress
+                    [percent]="85"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="90"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="70"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="60"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="50"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="71"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeColor]="'#FFF'"                       
+                    [outerStrokeColor]="'#CCC'"                    
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                    [showBackground]="true"
+                    [backgroundColor]="'#FFF'"
+                    [titleColor]="'#000'"
+                    [showInnerStroke]="'false'"
+                  ></circle-progress> </td>
+                  <td class="rank">7</td>
+                  <td> <bar-rating [(rate)]="rate" [max]="3"></bar-rating> </td>                  
+                  </tr>
+                 
+                  </tbody>
+                  </table>
+          </div>
+          <!--/.col-->
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">
+        Medals
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12" class="medal_caresoul">
+            <carousel>
+              <slide>
+                <img class="medal_img" src="assets/img/dashboard/medal_1.png" alt="slid_1">               
+              </slide>
+              <slide>
+                <img class="medal_img" src="assets/img/dashboard/medal_3.png" alt="slid_1">
+              </slide>             
+            </carousel> 
+          </div>
+          <!--/.col-->
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        Performance
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div [chart]="performancegraph"></div>
+          </div>          
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+
+
+</div>  

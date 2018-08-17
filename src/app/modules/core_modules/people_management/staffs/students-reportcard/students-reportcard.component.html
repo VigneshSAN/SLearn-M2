@@ -1,0 +1,182 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        Select Sections
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Class</label>
+                <select class="form-control" id="select1" name="select1">
+                  <option value="0">Please select</option>
+                  <option value="1">6th</option>
+                  <option value="2">7th</option>
+                  <option value="3">8th</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Sections</label>
+              <select class="form-control" id="select1" name="select1">
+                <option value="0">Please select</option>
+                <option value="1">A</option>
+                <option value="2">C</option>
+                <option value="3">E</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="name">Select Exam</label>
+              <select class="form-control" id="select1" name="select1">
+                <option value="0">Please select</option>
+                <option value="1">1st Term</option>
+                <option value="2">2nd Term</option>
+                <option value="3">Queater Yearly</option>
+                <option value="4">3rd Term</option>
+                <option value="5">Half Yearly</option>
+              </select>
+            </div>
+          </div>
+          <!--/.col-->
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        Report Card
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12">
+              <table class="table table-responsive-sm table-bordered table_stureport">
+                  <thead>
+                  <tr>
+                  <th>S.No</th>  
+                  <th>Name</th>
+                  <th>Tamil</th>
+                  <th>English</th>
+                  <th>Maths</th>
+                  <th>Science</th>
+                  <th>S.Science</th>
+                  <th>Average</th>
+                  <th>Attendance</th>
+                  <th>Credits</th>
+                  <th>Rank</th>
+                  <th>Parents Approvement</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                  <td> <span>1</span> </td>
+                  <td>  <img src="assets/img/staff_dashboard/student/stu_1.png" class="stu_reportcard"> <span class="stuent_name"> Arun Kumar .R </span> </td>
+                  <td><circle-progress
+                    [percent]="85"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress></td>
+                  <td> <circle-progress
+                    [percent]="90"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="70"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="60"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="50"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeWidth]="2"
+                    [outerStrokeColor]="'#78C000'"
+                    [innerStrokeColor]="'#C7E596'"
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                  ></circle-progress> </td>
+                  <td> <circle-progress
+                    [percent]="71"
+                    [radius]="20"
+                    [outerStrokeWidth]="4"
+                    [innerStrokeColor]="'#FFF'"                       
+                    [outerStrokeColor]="'#CCC'"                    
+                    [animation]="true"
+                    [animationDuration]="300"
+                    [titleFontSize]="10"
+                    [showSubtitle]="false"
+                    [showUnits]="false"
+                    [showBackground]="true"
+                    [backgroundColor]="'#FFF'"
+                    [titleColor]="'#000'"
+                    [showInnerStroke]="'false'"
+                  ></circle-progress> </td>
+                  <td> <span>70%</span> </td>
+                  <td><bar-rating [(rate)]="rate" [max]="5"></bar-rating> </td>
+                  <td> <span>7</span> </td>
+                  <td>  </td>                  
+                  </tr>
+                 
+                  </tbody>
+                  </table>
+          </div>
+          <!--/.col-->
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </div>
+
+</div>
+

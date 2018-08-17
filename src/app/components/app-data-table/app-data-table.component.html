@@ -1,0 +1,135 @@
+<div class="col-lg-12">
+    <div class="card">
+
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>{{title}}</strong>
+                </div>
+
+                <div class="col-md-6">
+                    <select id="selection" name="selection" (change)="select($event.target.value)" class="form-control" *ngIf="selectOption">
+                        <option value="-1">-Select-</option>
+                        <option value="{{select.id}}"  *ngFor="let select of selection">{{select.name}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary btn-sm sbtn-add" (click)="routerLink()" *ngIf="addOption">
+                        <i class="fa fa-plus"></i>&nbsp; Add {{title}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row data-table-header">
+                <div class="col-md-1">
+                    <!-- <div class="input-group-btn" dropdown>
+                                <button type="button" class="btn btn-primary dropdown-toggle" dropdownToggle>Export
+                                    <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu" *dropdownMenu>
+                                    <div class="checkbox" *ngFor="let column of columns, let i = index">
+                                        <label for="column">
+                                            <input type="checkbox" id="column" name="column" value="column" checked="true"> {{column}}
+                                        </label>
+                                    </div>
+                                </div>
+                        </div> -->
+                    <div class="input-group-btn" dropdown>
+                        <button type="button" class="btn btn-primary dropdown-toggle" dropdownToggle>Filter
+                            <span class="caret"></span>
+                        </button>
+
+                        <div class="dropdown-menu dropdown-menu-left" *dropdownMenu aria-labelledby="simple-dropdown">
+                            <div class="checkbox data-table-check" *ngFor="let column of columns, let i = index">
+                                <label for="column" class="data-table-filter">
+                                    <input type="checkbox" (change)="filterColumn(column,$event)" id="column" name="column" value="column" checked="true"> {{column}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- <div class="dropdown-menu" *dropdownMenu>
+                                <div class="checkbox" *ngFor="let column of columns, let i = index">
+                                    <label for="column">
+                                        <input type="checkbox" (change)="filterColumn(column,$event)" id="column" name="column" value="column" checked="true"> {{column}}
+                                    </label>
+                                </div>
+                            </div> -->
+                    </div>
+                </div>
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-4">
+                    <input type="text" id="filter" [(ngModel)]="filter" name="search" class="form-control form-control-sm" placeholder="Search">
+                </div>
+
+            </div>
+
+
+            <div class="col-md-12">
+                <table class="table table-responsive-sm table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let column of filterColumns">{{column}}</th>
+                            <th *ngIf="settings">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of data | filter:filter | paginate: { itemsPerPage: items, currentPage: Page }">
+                            <td *ngFor="let column of filterColumns">
+                                {{row[column]}}
+                            </td>
+                            <td *ngIf="settings">
+                                <button type="button" class="btn btn-link table-icon" (click)="update(row['id'])" *ngIf="updateOption">
+                                    <i class="fa fa-edit fa-lg mt-2"></i>
+                                </button>
+                                <button type="button" class="btn btn-link table-icon" (click)="delete(row['id'])" *ngIf="deleteOption">
+                                    <i class="fa fa-close fa-lg mt-2"></i>
+                                </button>
+                                <button type="button" class="btn btn-link table-icon" (click)="view(row['id'])" *ngIf="viewOption">
+                                    <i class="fa fa-eye fa-lg mt-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <select class="form-control form-control-sm" id="page" [(ngModel)]="items">
+                                    <option>5</option>
+                                    <option>10</option>
+                                    <option>25</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-sm-1">
+                                <input type="text" [(ngModel)]="Page" class="form-control form-control-sm" id="page-no" placeholder="Page">
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <pagination-controls (pageChange)="Page = $event"></pagination-controls>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!--/.row-->
+
+            </div>
+        </div>
+        <!-- </div>
+    
+</div> -->

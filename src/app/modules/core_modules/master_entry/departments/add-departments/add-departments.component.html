@@ -1,0 +1,65 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header">
+          <strong *ngIf="!updateButton">Add Department</strong>
+          <strong *ngIf="updateButton">Update Department</strong>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="department.name">Department Name</label>
+                <div class="col-md-9">
+                  <input type="text" [(ngModel)]="department.name" id="department.name" name="department.name" class="form-control" placeholder="Department Name">
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="department.idPrefix">ID Prefix</label>
+                <div class="col-md-9">
+                  <input type="text" [(ngModel)]="department.idPrefix" id="department.idPrefix" name="department.idPrefix" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                    class="form-control" placeholder="ID Prefix">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer" *ngIf="!updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="submitDepartment(department, headStaff)">
+            <i class="fa fa-dot-circle-o"></i> Submit
+          </button>
+
+          <button type="reset" class="btn btn-sm btn-danger">
+            <i class="fa fa-ban"></i> Reset
+          </button>
+        </div>
+
+        <div class="card-footer" *ngIf="updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="updateDepartment(department)">
+            <i class="fa fa-dot-circle-o"></i> Update
+          </button>
+
+          <button type="submit" class="btn btn-sm btn-danger" [routerLink]="['/departments/departments-list']">
+            <i class="fa fa-dot-circle-o"></i> Cancel
+          </button>
+        </div>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</div>

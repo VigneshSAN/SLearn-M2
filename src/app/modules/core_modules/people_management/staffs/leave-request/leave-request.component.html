@@ -1,0 +1,86 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header">
+          <strong *ngIf="!updateButton">Add Leave Request</strong> 
+          <strong *ngIf="updateButton">Update Leave Request</strong> Form
+        </div>
+
+        <div class="card-body">
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="leave.startDate">Leave From</label>
+                <div class="col-md-9">
+                  <input type="date" [(ngModel)]="leave.startDate" id="leave.startDate" name="leave.startDate" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                    class="form-control" placeholder="Leave From">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="leave.endDate">To</label>
+                <div class="col-md-9">
+                  <input type="date" [(ngModel)]="leave.endDate" id="leave.endDate" name="leave.endDate" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                    class="form-control" placeholder="Leave To">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="leave.leaveType">Leave Type</label>
+                <div class="col-md-9">
+                  <select [(ngModel)]="leave.leaveType" id="leave.leaveType" name="leave.leaveType" class="form-control">
+                    <option value="-1">-Select-</option>
+                    <option value="{{leave.name}}" *ngFor="let leave of leaveType">{{leave.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="leave.message">Message</label>
+                <div class="col-md-9">
+                  <input type="textarea" [(ngModel)]="leave.message" id="leave.message" name="leave.message" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                    class="form-control" placeholder="Message">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="card-footer" *ngIf="!updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="submitLeaveRequest()">
+            <i class="fa fa-dot-circle-o"></i> Submit
+          </button>
+
+          <button type="reset" class="btn btn-sm btn-danger">
+            <i class="fa fa-ban"></i> Reset
+          </button>
+        </div>
+
+        <div class="card-footer" *ngIf="updateButton">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="updateStaffs(staffs)">
+            <i class="fa fa-dot-circle-o"></i> Update
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

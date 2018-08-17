@@ -1,0 +1,60 @@
+<style>
+   drag-scroll {
+      height: 250px;
+      width: 1000px;
+    }
+    img {
+      height: 250px;
+      width: 250px;
+      border:1px solid #CCC;
+    }
+</style>  
+
+<div class="card">
+    <div class="card-header">
+     Attendance
+    </div>
+  
+   
+  <div class="card">
+      <div class="card-body">
+          <div class="row">
+            <div style="margin:10px;text-align:center;border:1px solid #ccc;height: 200px;width: 100%">
+                <div class="panel panel-default" >
+                  <div class="panel-body" >                     
+                      <div dnd-draggable [dragData]="data"  [dragEnabled]="true" >Present</div>
+                  </div>
+              </div>  
+              </div>
+          </div>
+      </div>
+    
+        <div class="card-body">
+          <div class="row">
+              <drag-scroll>
+                  <img drag-scroll-item dnd-draggable  src="assets/img/staff/students/stu_1.png" />
+                  <img drag-scroll-item dnd-draggable src="assets/img/staff/students/stu_2.png" />
+                  <img drag-scroll-item dnd-draggable src="assets/img/staff/students/stu_3.png" />
+                  <img drag-scroll-item dnd-draggable src="assets/img/staff/students/stu_4.png" />
+                  <img drag-scroll-item dnd-draggable src="assets/img/staff/students/stu_5.png" />
+                  <img drag-scroll-item dnd-draggable src="assets/img/staff/students/stu_6.png" />
+                  <img drag-scroll-item dnd-draggable src="assets/img/staff/students/stu_7.png" />
+                  <img drag-scroll-item dnd-draggable src="assets/img/staff/students/stu_8.png" />
+                </drag-scroll>
+          </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+              <div style="margin:10px;text-align:center;border:1px solid #ccc;height: 200px;width: 100%">
+                  <div class="panel panel-default" >
+                    <div class="panel-body" >                     
+                        <div dnd-draggable [dragData]="data"  [dragEnabled]="true" >Absent</div>
+                    </div>
+                </div>  
+                </div>
+            </div>
+        </div>
+  </div>        
+  
+  

@@ -1,0 +1,192 @@
+<style>
+  .drop_place{
+    border: 1px solid #CCC;
+    text-align: center;
+    margin: -10px -8px -8px -10px;
+    background: #4dbd74;
+    color: #FFF;
+  }
+  drag-scroll {
+      height: 250px;
+      width: 1000px;
+    }
+    img {
+      height: 250px;
+      width: 250px;
+      border:1px solid #CCC;
+    }
+</style>  
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+      Manual Time Table
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8">  
+                  <table class="table table-bordered" >
+                    <thead style="text-align:center;">
+                      <tr>
+                        <th>Days</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Monday</td>
+                        <td>
+                          <div dnd-droppable class="panel panel-info" (onDropSuccess)="savetimetable($event)">
+                          <div class="panel-heading" style="visibility: hidden;">{{timetable.length}}</div>
+                          <div class="panel-body drop_place" style="background: #4dbd74;">
+                             {{timetable[0]}}
+                          </div>
+                          </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Tuesday</td>
+                        <td>
+                            <div dnd-droppable class="panel panel-info" (onDropSuccess)="savetimetable($event)">
+                                <div class="panel-heading" style="visibility: hidden;">{{timetable.length}}</div>
+                                <div class="panel-body drop_place">
+                                   {{timetable[1]}}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+
+                            <div dnd-droppable class="panel panel-info" (onDropSuccess)="savetimetable($event)">
+                                <div class="panel-heading" style="visibility: hidden;">{{timetable.length}}</div>
+                                <div class="panel-body drop_place" style="background: #f86c6b;">
+                                   {{timetable[3]}}
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>                        
+                      </tr>
+                      <tr>
+                        <td>wednesday</td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Thursday</td>
+                        <td>
+                          <div dnd-droppable class="panel panel-info" (onDropSuccess)="savetimetable($event)">
+                              <div class="panel-heading" style="visibility: hidden;">{{timetable.length}}</div>
+                              <div class="panel-body drop_place" style="background: #f86c6b;">
+                                 {{timetable[4]}}
+                              </div>
+                          </div></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Friday</td>
+                        <td></td>
+                        <td> <div dnd-droppable class="panel panel-info" (onDropSuccess)="savetimetable($event)">
+                          <div class="panel-heading" style="visibility: hidden;">{{timetable.length}}</div>
+                          <div class="panel-body drop_place" style="background: #f86c6b;">
+                             {{timetable[5]}}
+                          </div>
+                      </div></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>Saturday</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td> <div dnd-droppable class="panel panel-info" (onDropSuccess)="savetimetable($event)">
+                          <div class="panel-heading" style="visibility: hidden;">{{timetable.length}}</div>
+                          <div class="panel-body drop_place" style="background: #f86c6b;">
+                             {{timetable[6]}}
+                          </div>
+                      </div></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>  
+                  
+                </div>
+            
+            <div class="col-sm-4">
+                <table class="table table-bordered" >
+                  <thead style="text-align:center;">
+                    <tr>
+                      <th>Subject</th>                
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let data of transferData">
+                    <tr>
+                      <div style="margin:10px;text-align:center;">
+                        <div class="panel panel-default" >
+                          <div class="panel-body" >                     
+                              <div dnd-draggable [dragData]="data"  [dragEnabled]="true" >{{data}}</div>
+                          </div>
+                      </div>  
+                      </div>
+                    </tr> 
+                  </tbody>
+                </table>     
+              </div>
+          </div>
+        </div>    
+      </div>
+      <div class="card-footer">
+          <button type="submit" class="btn btn-sm btn-primary" >
+            <i class="fa fa-dot-circle-o"></i> Submit
+          </button>
+
+          <button type="reset" class="btn btn-sm btn-danger">
+            <i class="fa fa-ban"></i> Reset
+          </button>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+

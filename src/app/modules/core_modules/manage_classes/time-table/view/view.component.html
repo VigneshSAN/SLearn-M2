@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-8">
+        <strong>TimeTable</strong>
+      </div>
+
+      <div class="col-md-4">
+        <select id="batch" name="batch" (change)="select($event.target.value)" class="form-control">
+          <option value="-1">-Select-</option>
+          <option value="{{batch.id}}" *ngFor="let batch of Batchs">{{batch.name}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-content" *ngIf="GeneratedSchedule.length < 1">
+      <h3 style="text-align: center;">Time Table Not yet Generated!</h3>
+    </div>
+
+    <div class="card-content" *ngIf="GeneratedSchedule.length > 0">
+      <table class="table table-responsive-sm table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Days</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <b>Monday</b>
+            </td>
+            <td *ngFor="let row of Monday">{{row.courseName}}</td>
+          </tr>
+
+          <tr>
+            <td>
+              <b>Tuesday</b>
+            </td>
+            <td *ngFor="let row of Tuesday">{{row.courseName}}</td>
+          </tr>
+
+          <tr>
+            <td>
+              <b>Wednesday</b>
+            </td>
+            <td *ngFor="let row of Wednesday">{{row.courseName}}</td>
+          </tr>
+
+          <tr>
+            <td>
+              <b>Thursday</b>
+            </td>
+            <td *ngFor="let row of Thursday">{{row.courseName}}</td>
+          </tr>
+
+          <tr>
+            <td>
+              <b>Friday</b>
+            </td>
+            <td *ngFor="let row of Friday">{{row.courseName}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer" *ngIf="GeneratedSchedule.length > 0">
+    <button type="button" class="btn btn-sm btn-danger" (click)="reset()">reset</button>
+  </div>
+</div>

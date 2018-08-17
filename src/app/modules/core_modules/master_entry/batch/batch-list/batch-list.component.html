@@ -1,0 +1,10 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="animated fadeIn">
+  <app-data-table title="Batch" addRouterLink="/batch/add-batch" [data]="data" settings="true" updateOption="true" deleteOption="true" (UpdateOutputID)="update($event)" (DeleteOutputID)="delete($event)"
+        *ngIf="data.length > 0">
+  </app-data-table>
+</div> 
+    
+
+
+

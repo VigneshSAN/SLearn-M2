@@ -1,0 +1,11 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="animated fadeIn">
+  <app-data-table title="Course" selectOption="true" [selection]="selection" addRouterLink="/course/add-course" [data]="data" (SelectOutputID)="select($event)" settings="true" updateOption="true" deleteOption="true" (UpdateOutputID)="update($event)" (DeleteOutputID)="delete($event)"
+        *ngIf="data.length > 0">
+  </app-data-table>
+</div>
+
+<div class="animated fadeIn" *ngIf="data.length < 1">
+  <h1>No Data Found!</h1>
+  <button type="button" class="fab" (click)="gotoAddPage('/course/add-course')"> + </button>
+</div>

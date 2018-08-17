@@ -1,0 +1,113 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-header">
+                    <strong *ngIf="!updateButton">Add Events</strong>
+                    <strong *ngIf="updateButton">Update Events</strong>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="events.name">Event Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" [(ngModel)]="events.name" id="events.name" name="events.name" class="form-control" placeholder="Event Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="events.type">Event Type</label>
+                                <div class="col-md-9">
+                                    <select [(ngModel)]="events.type" id="events.type" name="events.type" class="form-control" >
+                                        <option value="-1">-Select-</option>
+                                        <option value="{{type.name}}" *ngFor="let type of eventType">{{type.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="events.beginTimestamp">Start Date</label>
+                                <div class="col-md-9">
+                                    <!-- <input type="date" [(ngModel)]="events.beginTimestamp" id="events.beginTimestamp" name="events.beginTimestamp" class="form-control"
+                                        placeholder="Start Date"> -->
+               
+                                        <ng-datepicker class="ng_date_picker" [(ngModel)]="events.beginTimestamp" [(options)]="options" ></ng-datepicker>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="events.entityLevel">Entity</label>
+                                <div class="col-md-9">
+                                    <select [(ngModel)]="events.entityLevel" id="events.entityLevel" name="events.entityLevel" class="form-control" (change)="onChangeEventLevel($event.target.value)">
+                                        <option value="-1">-Select-</option>
+                                        <option value="{{type.name}}" *ngFor="let type of eventLevel">{{type.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="events.description">Description</label>
+                                <div class="col-md-9">
+                                    <input type="text" [(ngModel)]="events.description" id="events.description" name="events.description" class="form-control"
+                                        placeholder="Description">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="events.category">Category</label>
+                                <div class="col-md-9">
+                                    <select [(ngModel)]="events.category" id="events.category" name="events.category" class="form-control">
+                                        <option value="-1">-Select-</option>
+                                        <option value="{{type.name}}" *ngFor="let type of eventCategory">{{type.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 form-control-label" for="events.endTimestamp">End Date</label>
+                                <div class="col-md-9">
+                                    <!-- <input type="date" [(ngModel)]="events.endTimestamp" id="events.endTimestamp" name="events.endTimestamp" class="form-control"
+                                        placeholder="End Date"> -->
+                                        <ng-datepicker class="ng_date_picker" [(ngModel)]="events.endTimestamp" [(options)]="options" ></ng-datepicker>
+                                </div>
+                            </div>
+
+                            <div class="form-group row" *ngIf=" events.entityLevel == 'Department' || events.entityLevel == 'Batch'">
+                                <label class="col-md-3 form-control-label" for="events.entityId">{{entityId}}</label>
+                                <div class="col-md-9">
+                                    <select [(ngModel)]="events.entityId" id="events.entityId" name="events.entityId" class="form-control">
+                                        <option value="-1">-Select-</option>
+                                        <option value="{{type.id}}" *ngFor="let type of EntityID">{{type.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer" *ngIf="!updateButton">
+                    <button type="submit" class="btn btn-sm btn-primary" (click)="submitEvents(events)">
+                        <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+
+                    <button type="reset" class="btn btn-sm btn-danger">
+                        <i class="fa fa-ban"></i> Reset
+                    </button>
+                </div>
+
+                <div class="card-footer" *ngIf="updateButton">
+                    <button type="submit" class="btn btn-sm btn-primary" (click)="updateEvents(events)">
+                        <i class="fa fa-dot-circle-o"></i> Update
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

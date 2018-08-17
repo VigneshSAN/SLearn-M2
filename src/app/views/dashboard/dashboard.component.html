@@ -1,0 +1,177 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-primary">
+        <div class="card-body pb-0">
+          <h5 class="mb-0">Acadmaic</h5>
+          <img src="assets/img/dashboard/acadamic.png" class="dashb_top_img droplet" alt="acadamic">
+        </div>
+        <div class="chart-wrapper px-3 dash_progress" style="height:43px;">
+          <i class="icon-diamond"></i>
+          <span class="value">43</span>
+          <div class="bars">
+            <div class="progress progress-xs">
+              <div class="progress-bar bg-warning" role="progressbar" style="width:43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-info">
+        <div class="card-body pb-0 co_curricular">
+          <h5 class="mb-0">Co-Curricular</h5>
+          <img src="assets/img/dashboard/co_curricular.png" class="dashb_top_img droplet" alt="acadamic">
+        </div>
+        <div class="chart-wrapper px-3 dash_progress" style="height:43px;">
+          <i class="icon-diamond"></i>
+          <span class="value">70</span>
+          <div class="bars">
+            <div class="progress progress-xs">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white">
+        <div class="card-body pb-0">
+          <h5 class="mb-0" style="color:#ccc;">Attendance</h5>
+          <div [chart]="chart"></div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-danger">
+        <div class="card-body pb-0">
+          <h4 class="mb-0"></h4>
+          <img src="assets/img/dashboard/stars.png" class="dashb_star_img" alt="acadamic">
+        </div>
+        <div class="chart-wrapper px-3" style="height:70px;">
+
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header">
+          Acadamic Calendar
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              
+                <img class="" src="assets/img/dashboard/calendar.png" alt="slid_1" style="width:96%">
+              
+            </div>
+            <!--/.col-->
+          </div>
+          <!--/.row-->
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-header">
+          Tasks
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6 tasks">
+              <ul class="icons-list" *ngFor="let task of tasks | paginate: { itemsPerPage:6, currentPage:p } ">
+                <li>
+                  <i class="">
+                    <img class="cal_img" src="assets/img/dashboard/{{task.img_sli}}" alt="slid_1">
+                  </i>
+                  <div class="desc">
+                    <div class="title">{{task.task_title}}</div>
+                    <small>{{task.task_sub}}</small>
+                    <span class="task_time">
+                      <b>Due :</b>Mar 21 9:00 AM </span>
+                  </div>
+                </li>
+              </ul>
+              <div class="pagi">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+            </div>
+            <!--/.col-->
+            <div class="col-sm-6 carosel_img">
+              <carousel>
+                <slide>
+                  <img src="assets/img/slider/1.png" alt="slid_1">
+                </slide>
+                <slide>
+                  <img src="assets/img/slider/2.png" alt="slid_1">
+                </slide>
+                <slide>
+                  <img src="assets/img/slider/3.png" alt="slid_1">
+                </slide>
+              </carousel>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--/.row-->
+
+
+  <div class="row">
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-header">
+          Work Flow
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <ul class="icons-list work_flow" *ngFor="let work of work_flow  | paginate: { itemsPerPage:6, currentPage:q } ">
+                <li>
+                  <!-- <i class=""><img  class="cal_img" src="assets/img/dashboard/sports_day.png" alt="slid_1" style="width:25px;"></i> -->
+                  <i class="">
+                    <img class="cal_img" src="assets/img/dashboard/{{work.img_url}}" style="width:25px;">
+                  </i>
+                  <div class="desc">
+                    <div class="title">{{work.work_title}}</div>
+                    <small>{{work.sub_title}}</small>
+
+                  </div>
+                  <div class="actions work_flow_bar">
+                    <div class="progress progress-xs" style="background-color:#f86c6b;">
+                      <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{ 'width': work.value + '%' }" aria-valuenow="43" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                  </div>
+
+                </li>
+              </ul>
+              <div class="pagi_wrk">
+                <pagination-controls (pageChange)="q = $event"></pagination-controls>
+              </div>
+            </div>
+            <!--/.col-->
+          </div>
+          <!--/.row-->
+
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+
+  </div>
+</div>

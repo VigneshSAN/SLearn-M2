@@ -1,0 +1,39 @@
+<aw-wizard>
+
+  <aw-wizard-step stepTitle="Title of step 1" awOptionalStep>
+
+      <div>
+          <div class="wrapper">
+            
+            <div class="container" dragula="DRAGULA_FACTS">
+              <div>You can move these elements between these two containers</div>
+              <div>Moving them anywhere else isn't quite possible</div>
+              <div>There's also the possibility of moving elements around in the same container, changing their position</div>
+            </div>
+
+            <div class="container" dragula="DRAGULA_FACTS">
+              <div>This is the default use case. You only need to specify the containers you want to use</div>
+              <div>More interactive use cases lie ahead</div>
+              <div>Make sure to check out the <a href="https://github.com/bevacqua/dragula#readme">documentation on GitHub!</a></div>
+            </div>
+          </div>
+
+        </div>
+
+    <button type="button" awNextStep>Next Step</button>
+    <!-- <button type="button" [awGoToStep]="{stepIndex: 2}">Go directly to third Step</button> -->
+  </aw-wizard-step>
+
+  <aw-wizard-step stepTitle="Title of step 2">
+    Content of Step 2
+    <button type="button" awPreviousStep>Go to previous step</button>
+    <button type="button" awNextStep>Go to next step</button>
+  </aw-wizard-step>
+
+  <aw-wizard-step stepTitle="Title of step 3">
+    Content of Step 3
+    <button type="button" awPreviousStep>Previous Step</button>
+    <button type="button" (click)="finishFunction()">Finish</button>
+  </aw-wizard-step>
+
+</aw-wizard>

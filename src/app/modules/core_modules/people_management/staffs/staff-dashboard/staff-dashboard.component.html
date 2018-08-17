@@ -1,0 +1,511 @@
+<div class="animated fadeIn">
+  <div class="row">
+      <!-- <div class="col-sm-6 col-lg-4">
+          <div class="card">
+            <div class="card-header" [routerLink]="['/staffs/staff-performance']" >
+              Performance
+              <div class="card-actions">
+                <a href="#" class="btn-setting">
+                  <i class="icon-settings"></i>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+                <div class="card-body pb-0" style="text-align:center;">
+                    <img src="assets/img/staff_dashboard/ein.png" class="dashb_top_img droplet" alt="acadamic">
+                </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-sm-12">
+              <div class="chart-wrapper px-3 dash_progress">
+                <i class="icon-diamond"></i>
+                <span class="value">70</span>
+                <div class="bars">
+                  <div class="progress progress-xs">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+    <!--/.col-->
+
+    <div class="col-sm-6 col-lg-4">
+      <div class="card">
+          <div class="card-header" [routerLink]="['/staffs/staff-performance']" >
+            Assigned Request
+            <!-- <div class="card-actions">
+              <a href="#" class="btn-setting">
+                <i class="icon-settings"></i>
+              </a>
+            </div> -->
+          </div>
+          <ul class="icons-list work_approve">
+              <li *ngFor="let streq of staffreg | paginate: { itemsPerPage:3, currentPage:p }">
+                <i class="">
+                  <img class="cal_img" src="assets/img/staff_dashboard/student/stu_1.png" alt="slid_1">
+                </i>
+                <div class="desc">
+                  <div class="title">{{streq.leaveType}}</div>
+                  <small>{{streq.message}}</small>
+                  <small class="leave_req">{{streq.startDate | date: 'dd/MM/yyyy' }} - {{streq.endDate | date: 'dd/MM/yyyy' }} </small>
+    
+                </div>
+                <div class="actions workflow_btn">                     
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" (click)="myModal.show()">Approve</button>                   
+                </div>
+              </li>
+            </ul>
+            <div class="pagi_staff">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="col-sm-6 col-lg-4">
+      <div class="card">
+        <div class="card-header" [routerLink]="['/staffs/students-reportcard']" >
+          Acadamic
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div [chart]="exam1"></div>
+          </div>
+          <div class="col-md-6">
+            <div [chart]="exam1"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div [chart]="exam1"></div>
+          </div>
+          <div class="col-md-6">
+            <div [chart]="exam1"></div>
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+
+    <div class="col-sm-6 col-lg-4">
+      <div class="card">
+          <div class="card-header">
+            Attendance
+            <!-- <div class="card-actions">
+              <a href="#" class="btn-setting">
+                <i class="icon-settings"></i>
+              </a>
+            </div> -->
+          </div>
+          <div [chart]="chart"></div>
+  
+          <!-- <div class="attendance_bottom">
+            Leave Available : 6CL / 3ML / 3 LOP
+          </div> -->
+        </div>
+    </div>    
+    
+    <!--/.col-->
+
+    <div class="col-sm-6 col-lg-4">
+        <div class="card">
+          <div class="card-header">
+            Awards
+            <!-- <div class="card-actions">
+              <a href="#" class="btn-setting">
+                <i class="icon-settings"></i>
+              </a>
+            </div> -->
+          </div>
+         
+          <div class="awards" style="margin-bottom: 67px;">
+            <img src="assets/img/staff_dashboard/medal_1.png" class="dashb_top_img droplet" alt="acadamic">
+          </div>  
+          
+        </div>
+      </div>
+      <!--/.col-->
+
+
+  </div>
+  <!--/.row-->
+
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          Timetable
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <table class="table table-bordered" >
+              <thead style="text-align:center;">
+                <tr>
+                  <th>Days</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                  <th>8</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monday</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>                  
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>           
+                </tr>
+                <tr>
+                    <td>wednesday</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>           
+                </tr>
+                <tr>
+                    <td>thursday</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>           
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>           
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>           
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--/.row-->
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header" [routerLink]="['/staffs/staff-performance']" >
+              Events
+              <!-- <div class="card-actions">
+                <a href="#" class="btn-setting">
+                  <i class="icon-settings"></i>
+                </a>
+              </div> -->
+            </div>
+            <ul class="icons-list work_approve">
+                <li *ngFor="let stfevn of staffevn | paginate: { itemsPerPage:3, currentPage:d, id: 'd' }">
+                  <i class="">
+                    <img class="cal_img" src="assets/img/staff_dashboard/student/stu_1.png" alt="slid_1">
+                  </i>
+                  <div class="desc">
+                    <div class="title">{{stfevn.name}}</div>
+                    <small>{{stfevn.type}}</small>
+                    <small class="leave_req">{{stfevn.beginTimestamp | date: 'dd/MM/yyyy' }} - {{stfevn.beginTimestamp | date: 'dd/MM/yyyy' }} </small>
+      
+                  </div>
+                  <div class="actions workflow_btn">
+                     
+                      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" (click)="myModal.show()">Apply</button>                   
+                  </div>
+                </li>
+              </ul>
+              <div class="pagi_staff">
+                <pagination-controls (pageChange)="d = $event" id="d"></pagination-controls>
+              </div>
+          </div>
+      </div>     
+
+    
+    <!--/.col-->
+  </div>
+
+  <!-- <div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">About <b>Aravinth</b></h4>
+          <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">                
+                  <div class="form-group row">
+                      <label class="col-md-6 col-form-label">School Fees</label>
+                      <div class="col-md-6">
+                      <p class="form-control-static"><b>PAID</b></p>
+                      </div>
+                  </div>  
+
+                  <div class="form-group row">
+                      <label class="col-md-6 col-form-label">Assignments Pending</label>
+                      <div class="col-md-6">
+                      <p class="form-control-static"><b>2</b></p>
+                      </div>
+                  </div>  
+
+                  <div class="form-group row">
+                      <label class="col-md-6 col-form-label">Acadamic Percentages</label>
+                      <div class="col-md-6">
+                      <p class="form-control-static"><b>70%</b></p>
+                      </div>
+                  </div> 
+                </div> 
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="myModal.hide()">Close</button>
+          <button type="button" class="btn btn-primary">Approve</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+          <div class="card-header">
+            Course Completion
+          </div>
+          <div class="card-body">
+            <div>
+              <tabset>
+                <tab heading="Maths" id="tab1">
+                  <ul class="icons-list certification" *ngFor="let cour of course_completion" >
+                    <li [routerLink]="['/staffs/course-completions']">
+                      <i class="">
+                        <img class="certi_img" src="assets/img/staff_dashboard/course/{{cour.cou_img}}" alt="slid_1">
+                      </i>
+                      <div class="certifi_title">
+                        <div class="title">{{cour.course}}</div>
+                      </div>
+                      <div class="course_chart">
+                        <div [chart]="course"></div>
+                      </div>
+                    </li>
+                  </ul>
+                </tab>
+                <tab heading="Science">Basic content 1</tab>
+                <tab heading="Social Science">Basic content 2</tab>
+              </tabset>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+          <div class="card-header">
+            Notice Board
+          </div>
+          <div class="card-body" style="margin-bottom: 43px;">                         
+              <div class="callout callout-warning m-0 py-3">
+                <div class="avatar float-right">
+                  <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/7.jpg">
+                </div>
+                <div>Meeting with <strong>Lucas</strong></div>
+                <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
+                <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA </small>
+              </div>
+              <hr class="mx-3 my-0">
+              <div class="callout callout-info m-0 py-3">
+                <div class="avatar float-right">
+                  <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/4.jpg">
+                </div>
+                <div>Skype with <strong>Megan</strong></div>
+                <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 4 - 5pm</small>
+                <small class="text-muted"><i class="icon-social-skype"></i>&nbsp; On-line </small>
+              </div>
+                         
+              <div class="callout callout-danger m-0 py-3">
+                <div>New UI Project - <strong>deadline</strong></div>
+                <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 10 - 11pm</small>
+                <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ </small>
+                <div class="avatars-stack mt-2">
+                  <div class="avatar avatar-xs">
+                    <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/2.jpg">
+                  </div>
+                  <div class="avatar avatar-xs">
+                    <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/3.jpg">
+                  </div>
+                  <div class="avatar avatar-xs">
+                    <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/4.jpg">
+                  </div>
+                  <div class="avatar avatar-xs">
+                    <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/5.jpg">
+                  </div>
+                  <div class="avatar avatar-xs">
+                    <img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg">
+                  </div>
+                </div>
+              </div>
+              <hr class="mx-3 my-0">
+              <div class="callout callout-success m-0 py-3">
+                <div><strong>#10 Startups.Garden</strong> Meetup</div>
+                <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
+                <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA </small>
+              </div>
+              <hr class="mx-3 my-0">
+              
+              <hr class="mx-3 my-0">
+            
+          </div>
+        </div>
+    </div>
+    
+  </div> -->
+  <!--/.row-->
+
+
+  <!-- <div class="row">
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-header" [routerLink]="['/staffs/students-details']">
+            <div class="row">
+                <div class="col-sm-3">
+                    Students
+                </div>  
+                <div class="col-sm-5">
+                    <div class="student_search">
+                        <input type="text" class="form-control form-control-sm" id="Search" placeholder="Search..">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="student_search">
+                        <select id="sec" name="section" class="form-control form-control-sm">
+                            <option value="0">Select Section</option>
+                            <option value="1">5th std A</option>
+                            <option value="2">6th std C</option>
+                            <option value="3">8th stf E</option>
+                        </select>
+                    </div>
+                </div>
+            </div>           
+          
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+              <div class="col-sm-6 col-md-3">
+                <div class="card border-primary">
+                 
+                  <div class="card-body">
+                      <img class="student_img" src="assets/img/staff/students/stu_1.png" alt="students">
+                  </div>
+                  <div class="card-header card_title">
+                      KarthicK.K
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card border-secondary">                    
+                  <div class="card-body">
+                      <img class="student_img" src="assets/img/staff/students/stu_2.png" alt="students">
+                  </div>
+                  <div class="card-header card_title">
+                      Jay Chan 
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card border-success">                   
+                  <div class="card-body">
+                      <img class="student_img" src="assets/img/staff/students/stu_3.png" alt="students">
+                  </div>
+                  <div class="card-header card_title">
+                      Eva 
+                    </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="card border-info">                    
+                  <div class="card-body">
+                      <img class="student_img" src="assets/img/staff/students/stu_4.png" alt="students">
+                  </div>
+                  <div class="card-header card_title">
+                      Roshan.R
+                  </div>
+                </div>
+              </div>
+            </div>  
+        </div>
+      </div>
+    </div>
+   
+
+
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+              Attendance
+              <div class="card-actions">
+                <a href="#" class="btn-setting">
+                  <i class="icon-settings"></i>
+                </a>
+              </div>
+            </div>
+            <div [chart]="chart"></div>
+    
+            <div class="attendance_bottom">
+              Leave Available : 6CL / 3ML / 3 LOP
+            </div>
+          </div>
+     
+    </div>
+    
+  </div> -->
+
+</div>
+

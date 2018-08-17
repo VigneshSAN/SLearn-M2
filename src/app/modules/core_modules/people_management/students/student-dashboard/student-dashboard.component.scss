@@ -1,0 +1,126 @@
+.droplet {
+  /* background: mediumaquamarine;
+  border-radius: 2% 50%;
+  height: 100px;
+  margin: 100px; */
+  transition: all 3s;
+  /* transition-timing: ease-in-out; */
+  width: 100px;
+}
+// .droplet:hover {
+//  // transform: rotate(1080deg);
+// }
+
+
+.carosel_img img{
+  height:290px;
+}
+
+.card-body h5{
+text-align:center;
+}
+
+.dashb_top_img{
+  width: 208px;
+  margin: 20px 5px;
+}
+
+.dash_progress{
+  text-align:center;
+  margin:5px;
+}
+
+.dash_progress .value{
+margin-bottom:5px;
+}
+
+.co_curricular img{ 
+border-radius:100px;
+}
+
+.bg_attendance{
+  background:#7fa8bd;
+} 
+
+.tasks{
+  border-right:1px solid #ccc;
+}
+
+.work_flow li .desc{
+  border-bottom:none;
+}
+
+.work_flow li{
+  border-bottom:1px solid #ccc;
+  height:56px;
+}
+
+.work_flow_bar{
+  width:150px!important;
+  top:18px!important;
+}
+
+.workflow_btn{
+  width:100px!important;
+}
+
+.cal_img{
+  width:33px;
+}
+
+.fus_chart{
+  margin-left:-13px!important;
+}
+
+[class*="creditgroup"]{
+  display: none!important;
+}
+
+.icons-list li .desc{
+  border-bottom:none;
+}
+
+.task_time{
+  float: right;
+  margin-top: -23px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tasks li{
+  border-bottom:1px solid #ccc;
+}
+
+.ngx-pagination{
+  margin-top: 14px!important;
+}
+
+.pagi{
+  margin-top: 18px;
+  margin-bottom: -10px;
+  float: right;
+}
+
+.pagi_wrk{
+  float:right;
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+
+.dashb_star_img{
+  width: 210px;
+//  margin-top: 91px;
+}
+
+.card {
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+       box-shadow: 0 10px 6px -6px #777;
+}
+
+// .absolute_cont{
+//   position: absolute;
+//   margin-left: -10px;
+//   margin-right: -15px;
+// }

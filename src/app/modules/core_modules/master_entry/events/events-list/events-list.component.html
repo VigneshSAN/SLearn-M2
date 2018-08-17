@@ -1,0 +1,11 @@
+<ng4-loading-spinner></ng4-loading-spinner>
+<div class="animated fadeIn">
+  <app-data-table title="Events" addRouterLink="/events/add-events" [data]="data" settings="true" deleteOption="true" (UpdateOutputID)="update($event)" (DeleteOutputID)="delete($event)"
+    *ngIf="data.length > 0">
+  </app-data-table>
+</div>
+
+<div class="animated fadeIn" *ngIf="data.length < 1">
+  <h1>No Data Found!</h1>
+  <button type="button" class="fab" (click)="gotoAddPage('/staffs/add-staffs')"> + </button>
+</div>
