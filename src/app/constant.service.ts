@@ -120,11 +120,9 @@ export class ConstantService {
     return this._cookieService.get(keyName);
   }
 
-  setCookie(key: string) {
-    this._cookieService.put('AccessToken', key);
+  setCookie(name: string, key: string) {
+    this._cookieService.put(name, key);
   }
-
-
 
 
   /** HARI CODE  **/

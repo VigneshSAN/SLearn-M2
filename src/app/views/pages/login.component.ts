@@ -25,7 +25,7 @@ export class LoginComponent {
     this.constService.getToken(username, password)
       .subscribe(response => {
         console.log(response);
-        this.constService.setCookie(response.sessionToken);
+        this.constService.setCookie('AccessToken',response.sessionToken);
         $("#test").html("<img id='setCookieImg' src='http://52.15.179.93:8080/slearn_v0.2/rest/Test/setCookie/" + response.sessionToken + "/-1'/>");
       })
   }
@@ -55,8 +55,9 @@ export class LoginComponent {
   }
 
   setUserId(user) {
-    console.log(user);
-    this.constService.setToken(this.constService.getCookie('AccessToken'), user.id)
+    this.constService.setCookie('UserID',user.roleId);
+    $("#red").html("<img id='setCookieImg' src='http://52.15.179.93:8080/slearn_v0.2/rest/Test/setCookie/" + this.constService.getCookie('AccessToken') + "/"+ user.roleId +"'/>");
+    this.constService.setToken(this.constService.getCookie('AccessToken'), user.roleId)
       .subscribe(response => {
         if (user.type == "Staff" && user.privilege == "Admin") {
           localStorage.setItem('usertype', "Admin");
