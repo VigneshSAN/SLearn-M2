@@ -1,5 +1,5 @@
 
-// providers.ts
+// my-http-provider.ts
 import {RequestOptions, XHRBackend} from '@angular/http';
 import {MyHttpInterceptor} from './my-http-interceptor';
 import { ConstantService } from './constant.service';
