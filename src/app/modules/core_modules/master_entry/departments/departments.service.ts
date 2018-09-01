@@ -15,7 +15,7 @@ export class DepartmentsService {
 
   // fetching the departments details for the Departments List
   fetchDepartmentDetails() {
-    return this.http.get(this.constantService._base_url + 'institute/1/departments', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'institute/1/departments')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -24,7 +24,7 @@ export class DepartmentsService {
   }
 
   fetchDepartmentDetail(id) {
-    return this.http.get(this.constantService._base_url + 'institute/' + id + '/departments', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'institute/' + id + '/departments')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -36,7 +36,7 @@ export class DepartmentsService {
   submitDepartmentDetails(department) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.constantService._base_url + 'institute/1/department', JSON.stringify(department), { headers: headers ,withCredentials:true})
+    return this.http.post(this.constantService._base_url + 'institute/1/department', JSON.stringify(department), { headers: headers})
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -47,7 +47,7 @@ export class DepartmentsService {
 
   // For Getting the Separate Departments Details 
   getDepartmentDetails(id) {
-    return this.http.get(this.constantService._base_url + 'department/' + id, { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'department/' + id)
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -60,7 +60,7 @@ export class DepartmentsService {
   updateDepartment(department, id) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.put(this.constantService._base_url + 'department/' + id, JSON.stringify(department), { headers: headers, withCredentials:true })
+    return this.http.put(this.constantService._base_url + 'department/' + id, JSON.stringify(department), { headers: headers})
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -71,7 +71,7 @@ export class DepartmentsService {
 
   // For Deleting the Department
   deleteDepartment(id) {
-    return this.http.delete(this.constantService._base_url + 'department/' + id, { withCredentials:true})
+    return this.http.delete(this.constantService._base_url + 'department/' + id)
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {

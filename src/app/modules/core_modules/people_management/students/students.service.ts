@@ -11,7 +11,7 @@ export class StudentsService {
 
   // For Fetching the students details
   fetchStudentsDetails() {
-    return this.http.get(this.constantService._base_url + 'batch/1/Student', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'batch/1/Student')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -21,7 +21,7 @@ export class StudentsService {
   }
 
   fetchStudentsDetail(id) {
-    return this.http.get(this.constantService._base_url + 'batch/' + id + '/Student', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'batch/' + id + '/Student')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -38,7 +38,7 @@ export class StudentsService {
     };
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.constantService._base_url + 'batch/' + id + '/Student', JSON.stringify(array), { headers: headers , withCredentials:true })
+    return this.http.post(this.constantService._base_url + 'batch/' + id + '/Student', JSON.stringify(array), { headers: headers})
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -49,7 +49,7 @@ export class StudentsService {
 
   // fetching the single student details
   fetchStudent(id) {
-    return this.http.get(this.constantService._base_url + 'Student/' + id, { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'Student/' + id)
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -66,7 +66,7 @@ export class StudentsService {
     };
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.put(this.constantService._base_url + 'Student/' + id, JSON.stringify(array), { headers: headers, withCredentials:true })
+    return this.http.put(this.constantService._base_url + 'Student/' + id, JSON.stringify(array), { headers: headers })
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -76,7 +76,7 @@ export class StudentsService {
   }
 
   deleteStudents(id) {
-    return this.http.delete(this.constantService._base_url + 'Student/' + id, { withCredentials:true})
+    return this.http.delete(this.constantService._base_url + 'Student/' + id)
     .map((response: Response) => {
       return this.httpStatus.successStatus(response)
     }).catch((error: any) => {
@@ -89,7 +89,7 @@ export class StudentsService {
   submitLeaveRequest(array) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.constantService._base_url + 'Student/2/LeaveRequest', JSON.stringify(array), { headers: headers , withCredentials:true})
+    return this.http.post(this.constantService._base_url + 'Student/2/LeaveRequest', JSON.stringify(array), { headers: headers })
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -103,7 +103,7 @@ export class StudentsService {
   // FOR FETCHING ATTENDANCE
 
    fetchStudentsAttendance() {
-    return this.http.get(this.constantService._base_url + 'Student/1/AttendanceSummary', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'Student/1/AttendanceSummary')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -115,7 +115,7 @@ export class StudentsService {
 
   // STUDENTS LEAVE REQUEST
   LeaveRequest() {
-    return this.http.get(this.constantService._base_url + 'Student/2/LeaveRequest', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'Student/2/LeaveRequest')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -126,7 +126,7 @@ export class StudentsService {
 
   // STUDENTS EVENTS
   StudentEvents() {  // /institute/{instituteId}/event
-    return this.http.get(this.constantService._base_url + 'institute/1/event', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'institute/1/event')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -137,7 +137,7 @@ export class StudentsService {
 
  // STUDENTS ASSESSMENTS
   StudentAssessment() {
-    return this.http.get(this.constantService._base_url + 'Student/2/AssessmentByCourse/6', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'Student/2/AssessmentByCourse/6')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {

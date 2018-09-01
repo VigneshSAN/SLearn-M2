@@ -11,7 +11,7 @@ export class EventsService {
 
   // For Fetching the All the Events from the Instuitute
   fetchEvents() {
-    return this.http.get(this.constantService._base_url + 'institute/1/event', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'institute/1/event')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -24,7 +24,7 @@ export class EventsService {
   submitEvents(events) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.constantService._base_url + 'institute/1/event', JSON.stringify(events), { headers: headers, withCredentials:true })
+    return this.http.post(this.constantService._base_url + 'institute/1/event', JSON.stringify(events), { headers: headers})
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -35,7 +35,7 @@ export class EventsService {
 
   // For Getting the Single and Separate Event
   getEvent(id) {
-    return this.http.get(this.constantService._base_url + 'Event/'+id, { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'Event/'+id)
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -46,7 +46,7 @@ export class EventsService {
 
   // For Deleting the Events
   deleteEvent(id) {
-    return this.http.delete(this.constantService._base_url + 'Event/'+id, { withCredentials:true})
+    return this.http.delete(this.constantService._base_url + 'Event/'+id)
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {

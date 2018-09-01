@@ -11,7 +11,7 @@ export class BatchService {
 
   // Fetching the Batch details
   fetchBatchDetails() {
-    return this.http.get(this.constantService._base_url + 'term/1/batch', { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'term/1/batch')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -24,7 +24,7 @@ export class BatchService {
   submitBatch(batch, TermID) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.constantService._base_url + 'term/' + TermID + '/batch', JSON.stringify(batch), { headers: headers, withCredentials:true})
+    return this.http.post(this.constantService._base_url + 'term/' + TermID + '/batch', JSON.stringify(batch), { headers: headers})
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -37,7 +37,7 @@ export class BatchService {
   updateBatch(batch, id) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.put(this.constantService._base_url + 'batch/' + id, JSON.stringify(batch), { headers: headers, withCredentials:true})
+    return this.http.put(this.constantService._base_url + 'batch/' + id, JSON.stringify(batch), { headers: headers})
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -48,7 +48,7 @@ export class BatchService {
 
   // For Deleting the Batch
   deleteBatch(id) {
-    return this.http.delete(this.constantService._base_url + 'batch/' + id, { withCredentials:true})
+    return this.http.delete(this.constantService._base_url + 'batch/' + id)
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
@@ -59,7 +59,7 @@ export class BatchService {
 
   // for getting the separate batch
   getBatch(id) {
-    return this.http.get(this.constantService._base_url + 'batch/' + id, { withCredentials:true})
+    return this.http.get(this.constantService._base_url + 'batch/' + id)
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {

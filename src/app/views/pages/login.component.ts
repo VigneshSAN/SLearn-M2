@@ -48,7 +48,7 @@ export class LoginComponent {
   getUserId() {
     this.constService.getUserId()
       .subscribe(response => {
-        console.log(response);
+        //console.log(response);
         this.constService.setCookie('UserID',response[0].roleId);
         if (response[0].type == "Staff" && response[0].privilege == "Admin") {
           localStorage.setItem('usertype', "Admin");
