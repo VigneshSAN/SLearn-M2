@@ -120,6 +120,12 @@ import { LoginRoutingModule } from './modules/core_modules/people_management/log
 import { LoginModule } from './modules/core_modules/people_management/login/login.module';
 import { DragulaModule } from 'ng2-dragula';
 import { CookieService } from '../../node_modules/angular2-cookie/services/cookies.service';
+import { MyHttpClientInterceptor } from './my-http-client-Interceptor'
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Http, RequestOptions, XHRBackend } from '@angular/http';
+import {providerCustomHttp} from './my-http-provider';
+import { ConstantService } from './constant.service';
+
 
 
 declare function require(name: any);
@@ -159,7 +165,8 @@ export function highchartModules() {
     NgxSpinnerModule,
     LoginModule,
     DragulaModule.forRoot(),
-    NgDatepickerModule
+    NgDatepickerModule 
+    
   ],
   declarations: [
     AppComponent,
@@ -168,10 +175,21 @@ export function highchartModules() {
     ...APP_DIRECTIVES,
     DashboardComponent,
   ],
-  providers: [{
+  providers: [ConstantService , {
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
-  }, HttpStatusService, DateService, CookieService],
+  }, HttpStatusService, DateService, CookieService ,
+  { 
+    provide: HTTP_INTERCEPTORS, 
+    useClass: MyHttpClientInterceptor, 
+    multi: true 
+},
+{ 
+  provide: Http, 
+  useFactory: providerCustomHttp , 
+  deps: [XHRBackend, RequestOptions , CookieService]
+}  
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
