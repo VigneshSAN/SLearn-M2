@@ -47,6 +47,7 @@ export class AppDataTableComponent {
   columns: string[] = [];
 
   filterColumns = [];
+  filter ;
 
   event = { 'target': { 'checked': true } };
 

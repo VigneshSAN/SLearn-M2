@@ -66,7 +66,7 @@ export class StudentDashboardComponent implements OnInit {
 
     present: any = 5;
 
-
+    
     id = 'chart';
     width = 200;
     height = 260;
@@ -80,6 +80,7 @@ export class StudentDashboardComponent implements OnInit {
     add: any;
 
     name: string;
+    rate: any;
     //  view: String = 'month';
     viewDate: Date = new Date();
     bounce: any;
