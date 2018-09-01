@@ -7,78 +7,78 @@ import { CookieService } from '../../node_modules/angular2-cookie/services/cooki
 @Injectable()
 export class ConstantService {
 
-   // public _base_url = 'http://52.15.179.93:8080/SLearn/rest/';
-   public _base_url = 'http://52.15.179.93:8080/slearn_v0.2/rest/';
+  // public _base_url = 'http://52.15.179.93:8080/SLearn/rest/';
+  public _base_url = 'http://52.15.179.93:8080/slearn_v0.2/rest/';
 
   constructor(private http: Http, private _cookieService: CookieService) { }
 
   getAcademicTermType() {
-    return this.http.get(this._base_url + 'Constants/AcademicTermType', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/AcademicTermType', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getAssessmentType() {
-    return this.http.get(this._base_url + 'Constants/AssessmentType', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/AssessmentType', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getAttendenceStatus() {
-    return this.http.get(this._base_url + 'Constants/AttendenceStatus', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/AttendenceStatus', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getEntityLevel() {
-    return this.http.get(this._base_url + 'Constants/EntityLevel', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/EntityLevel', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getEventCategory() {
-    return this.http.get(this._base_url + 'Constants/EventCategory', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/EventCategory', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getEventInstanceStatus() {
-    return this.http.get(this._base_url + 'Constants/EventInstanceStatus', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/EventInstanceStatus', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getEventType() {
-    return this.http.get(this._base_url + 'Constants/EventType', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/EventType', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getGuardianType() {
-    return this.http.get(this._base_url + 'Constants/GuardianType', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/GuardianType', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getLeaveType() {
-    return this.http.get(this._base_url + 'Constants/LeaveType', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/LeaveType', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getRequestStatus() {
-    return this.http.get(this._base_url + 'Constants/RequestStatus', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/RequestStatus', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getRequestType() {
-    return this.http.get(this._base_url + 'Constants/RequestType', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/RequestType', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getTTContraint() {
-    return this.http.get(this._base_url + 'Constants/TTConstraint', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/TTConstraint', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getTTContraintPriority() {
-    return this.http.get(this._base_url + 'Constants/TTConstraintPriority', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/TTConstraintPriority', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
   getUserStatus() {
-    return this.http.get(this._base_url + 'Constants/UserStatus', { withCredentials:true})
+    return this.http.get(this._base_url + 'Constants/UserStatus', { withCredentials: true })
       .map((response: Response) => response.json());
   }
 
@@ -106,8 +106,9 @@ export class ConstantService {
 
   getUserId() {
     console.log("Get USER ID");
-    const headers = new Headers();
-    return this.http.get(this._base_url + 'User/roles', { withCredentials: true })
+    const _headers = new Headers();
+    _headers.append("AccessToken", this.getCookie("AccessToken"))
+    return this.http.get(this._base_url + 'User/roles', { headers: _headers })
       .map((response: Response) => {
         return this.successStatus(response);
       }).catch((error: any) => {

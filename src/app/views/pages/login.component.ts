@@ -26,51 +26,47 @@ export class LoginComponent {
       .subscribe(response => {
         console.log(response);
         this.constService.setCookie('AccessToken',response.sessionToken);
-        $("#test").html("<img id='setCookieImg' src='http://52.15.179.93:8080/slearn_v0.2/rest/Test/setCookie/" + response.sessionToken + "/-1'/>");
+        // $("#test").html("<img id='setCookieImg' src='http://52.15.179.93:8080/slearn_v0.2/rest/Test/setCookie/" + response.sessionToken + "/-1'/>");
+        this.getUserId();
       })
   }
 
-  setToken(token, userID) {
-    this.constService.setToken(token, userID).subscribe(response => {
-      console.log(response);
-      if (response) {
-        if (response.status == 200) {
-          setTimeout(() => {
-            console.log(this.constService.getCookie('AccessToken'));
-            this.getUserId();
-          }, 500);
-        }
-      }
-    });
-  }
+  // setToken(token, userID) {
+  //   this.constService.setToken(token, userID).subscribe(response => {
+  //     console.log(response);
+  //     if (response) {
+  //       if (response.status == 200) {
+  //         setTimeout(() => {
+  //           console.log(this.constService.getCookie('AccessToken'));
+  //           this.getUserId();
+  //         }, 500);
+  //       }
+  //     }
+  //   });
+  // }
 
   getUserId() {
     this.constService.getUserId()
       .subscribe(response => {
-        this.setUserId(response[0]);
+        console.log(response);
+        this.constService.setCookie('UserID',response[0].roleId);
+        if (response[0].type == "Staff" && response[0].privilege == "Admin") {
+          localStorage.setItem('usertype', "Admin");
+          this.router.navigate(['/students/dashboard']);
+        } else if (response[0].type == "Staff" && response[0].privilege == "User") {
+          localStorage.setItem('usertype', "Staff");
+          this.router.navigate(['/staffs/dashboard']);
+        } else if (response[0].type == "Student" && response[0].privilege == "User") {
+          localStorage.setItem("usertype", "Student");
+          this.router.navigate(['/students/dashboard']);
+        }
+
       }, error => {
         console.log(error);
         // this.setToken(this.constService.getCookie('AccessToken') , -1)
       })
   }
 
-  setUserId(user) {
-    this.constService.setCookie('UserID',user.roleId);
-    $("#red").html("<img id='setCookieImg' src='http://52.15.179.93:8080/slearn_v0.2/rest/Test/setCookie/" + this.constService.getCookie('AccessToken') + "/"+ user.roleId +"'/>");
-    this.constService.setToken(this.constService.getCookie('AccessToken'), user.roleId)
-      .subscribe(response => {
-        if (user.type == "Staff" && user.privilege == "Admin") {
-          localStorage.setItem('usertype', "Admin");
-          this.router.navigate(['/students/dashboard']);
-        } else if (user.type == "Staff" && user.privilege == "User") {
-          localStorage.setItem('usertype', "Staff");
-          this.router.navigate(['/staffs/dashboard']);
-        } else if (user.type == "Student" && user.privilege == "User") {
-          localStorage.setItem("usertype", "Student");
-          this.router.navigate(['/students/dashboard']);
-        }
-      })
-  }
 
 
 }
