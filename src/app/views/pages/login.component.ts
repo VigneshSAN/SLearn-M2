@@ -17,18 +17,35 @@ export class LoginComponent {
   }
 
   loginUser(e) {
+    this.spinnerService.show();
     e.preventDefault();
-
     const username = e.target.elements[0].value;
     const password = e.target.elements[1].value;
 
     this.constService.getToken(username, password)
       .subscribe(response => {
         console.log(response);
-        this.constService.setCookie('AccessToken',response.sessionToken);
-        // $("#test").html("<img id='setCookieImg' src='http://52.15.179.93:8080/slearn_v0.2/rest/Test/setCookie/" + response.sessionToken + "/-1'/>");
-        this.getUserId();
-      })
+        if (response.code == -100)
+        {
+          this.spinnerService.hide();
+          this.toastr.error("User Name Or Password is Wrong","Login Error ?");
+        }
+        else
+        {
+          this.constService.setCookie('AccessToken',response.sessionToken);
+          // $("#test").html("<img id='setCookieImg' src='http://52.15.179.93:8080/slearn_v0.2/rest/Test/setCookie/" + response.sessionToken + "/-1'/>");
+          this.getUserId();
+          this.spinnerService.hide();
+        }
+      },
+      err => { 
+        this.toastr.error("Invalid Credentials","Login Error ?"); 
+        this.spinnerService.hide();
+     },
+     () => { 
+      this.spinnerService.hide();
+    }
+    )
   }
 
   // setToken(token, userID) {
@@ -62,7 +79,8 @@ export class LoginComponent {
         }
 
       }, error => {
-        console.log(error);
+        this.toastr.error(error,"Login Error ?"); 
+        this.spinnerService.hide(); 
         // this.setToken(this.constService.getCookie('AccessToken') , -1)
       })
   }

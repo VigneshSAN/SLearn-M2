@@ -137,7 +137,7 @@ export class StudentsService {
 
  // STUDENTS ASSESSMENTS
   StudentAssessment() {
-    return this.http.get(this.constantService._base_url + 'Student/2/AssessmentByCourse/6')
+    return this.http.get(this.constantService._base_url + 'Student/1/AssessmentByCourse/6')
       .map((response: Response) => {
         return this.httpStatus.successStatus(response)
       }).catch((error: any) => {
